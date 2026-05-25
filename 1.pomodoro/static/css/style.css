@@ -1,0 +1,197 @@
+/* ===========================
+   リセット & ベース
+   =========================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #7B6BB6;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+  color: #222;
+}
+
+/* ===========================
+   カード全体
+   =========================== */
+.timer-card {
+  background: #ffffff;
+  border-radius: 18px;
+  width: 340px;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.28);
+}
+
+/* ===========================
+   タイトルバー
+   =========================== */
+.card-titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid #f0f0f5;
+}
+
+.card-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: #666;
+}
+
+.window-controls {
+  display: flex;
+  gap: 10px;
+  font-size: 12px;
+  color: #bbb;
+  cursor: default;
+  user-select: none;
+}
+
+/* ===========================
+   モードラベル
+   =========================== */
+.mode-label {
+  text-align: center;
+  font-size: 14px;
+  color: #999;
+  margin-top: 20px;
+  letter-spacing: 0.03em;
+}
+
+/* ===========================
+   円形プログレス
+   =========================== */
+.progress-ring-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 12px auto 16px;
+}
+
+.progress-ring {
+  width: 100%;
+  height: 100%;
+  /* 12時方向スタートのため -90度回転 */
+  transform: rotate(-90deg);
+}
+
+.progress-ring__track {
+  fill: none;
+  stroke: #EEEEF8;
+  stroke-width: 14;
+}
+
+.progress-ring__fill {
+  fill: none;
+  stroke: #6466F1;
+  stroke-width: 14;
+  stroke-linecap: round;
+  /* r=80 の円周 = 2π×80 ≈ 502.65 */
+  stroke-dasharray: 502.65;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 0.5s linear;
+}
+
+.time-display {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #1a1a2e;
+}
+
+/* ===========================
+   ボタン行
+   =========================== */
+.button-row {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  padding: 0 24px 20px;
+}
+
+.btn {
+  flex: 1;
+  padding: 12px 0;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-primary {
+  background: #3B3DB4;
+  color: #ffffff;
+  border-color: #3B3DB4;
+}
+
+.btn-primary:hover {
+  background: #2D2FA0;
+  border-color: #2D2FA0;
+}
+
+.btn-secondary {
+  background: #ffffff;
+  color: #333;
+  border-color: #d8d8e8;
+}
+
+.btn-secondary:hover {
+  border-color: #aaa;
+}
+
+/* ===========================
+   今日の進捗カード
+   =========================== */
+.progress-card {
+  background: #F4F4FC;
+  margin: 0 16px 20px;
+  border-radius: 12px;
+  padding: 14px 20px;
+}
+
+.progress-card-title {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+  letter-spacing: 0.03em;
+}
+
+.progress-stats {
+  display: flex;
+  gap: 28px;
+  align-items: flex-end;
+}
+
+.stat-value {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1a2e;
+  line-height: 1;
+}
+
+.stat-value.stat-highlight {
+  color: #5B5BD6;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #aaa;
+  margin-top: 4px;
+}
