@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ポモドーロタイマー</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <div class="app-bg">
+    <div class="timer-card">
+
+      <!-- タイトルバー -->
+      <div class="card-titlebar">
+        <span class="card-title">ポモドーロタイマー</span>
+        <div class="window-controls" aria-hidden="true">
+          <span>－</span>
+          <span>□</span>
+          <span>×</span>
+        </div>
+      </div>
+
+      <!-- モード表示 -->
+      <p class="mode-label" id="mode-label" aria-live="polite">作業中</p>
+
+      <!-- 円形プログレス + 残り時間 -->
+      <div class="progress-ring-container">
+        <svg class="progress-ring" viewBox="0 0 200 200" aria-hidden="true">
+          <circle class="progress-ring__track" cx="100" cy="100" r="80"/>
+          <circle class="progress-ring__fill"
+                  id="progress-ring-fill"
+                  cx="100" cy="100" r="80"/>
+        </svg>
+        <div class="time-display" id="time-display" aria-label="残り時間 25分00秒">25:00</div>
+      </div>
+
+      <!-- 操作ボタン -->
+      <div class="button-row">
+        <button class="btn btn-primary" id="btn-start" aria-label="タイマー開始">開始</button>
+        <button class="btn btn-secondary" id="btn-skip" aria-label="スキップ" style="display:none;">スキップ</button>
+        <button class="btn btn-secondary" id="btn-reset" aria-label="リセット">リセット</button>
+      </div>
+
+      <!-- 今日の進捗カード -->
+      <div class="progress-card" aria-label="今日の進捗">
+        <p class="progress-card-title">今日の進捗</p>
+        <div class="progress-stats">
+          <div class="stat">
+            <div class="stat-value" id="completed-count">4</div>
+            <div class="stat-label">完了</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value stat-highlight" id="focus-time">1時間40分</div>
+            <div class="stat-label">集中時間</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
